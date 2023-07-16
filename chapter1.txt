@@ -4,3 +4,5 @@ He had one dream - to explore the mysterious world of Version Control.
 new lines added here
 again
 a few line added
+vbnetCopy code
+Git was eager to explore new places.
