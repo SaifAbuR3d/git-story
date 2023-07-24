@@ -5,4 +5,5 @@ Git took a deep breath as he stepped into the world of Version Control.
 He knew the journey wouldn't be easy, but he was ready.
 He was doing this for his village, for Init.
 The first challenge Git faced was understanding the concepts of Version Control.
-a new line to test the hook
+a new line to test the hook.
+yes this is a new line.
