@@ -6,3 +6,4 @@ again
 a few line added
 vbnetCopy code
 Git was eager to explore new places.
+a new line is added.
