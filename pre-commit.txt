@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Removes trailing white spaces from all staged files
+# The command 'git diff --cached' is used to show changes between the working directory and staging area
+# '--check' flag "Warn if changes introduce conflict markers or whitespace errors."
+
+#  the output of the line
+#    $ git diff --check --cached                    will be something similar to :
+
+#    chapter2.txt:3: trailing whitespace.
+#    +His family and friends gathered to bid him farewell. It was an emotional moment, but Git was determined.
+#    chapter3.txt:8: trailing whitespace.
+#    +a new line to test the hook.
+
+# sed is a stream editor that process the text line by line:
+# delete the lines begining with (+) or (-) operator
+# and delete the number in the form :x: from the file path
+# we left only with the file path
+
+# process each unique file, the (sed -i 's/[[:space:]]*$//' "$file") command removes trailing whitespaces from each line of the file.
+# -i to overwrite changes to the file
+
+# finally, stage the modified changes with (git add "$file")
+
+
+git diff --check --cached | sed '/^[+-]/d' | sed -E 's/:[0-9]+:.*//' | uniq | while IFS= read -r file; do
+    sed -i 's/[[:space:]]*$//' "$file"
+    git add "$file"
+done
